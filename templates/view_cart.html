@@ -1,0 +1,411 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SDGS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dine Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">   
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet"> <!-- font-awesome icons --> 
+<!-- //Custom Theme files --> 
+<!-- js -->
+<script src="{% static 'js/jquery-2.2.3.min.js'%}"></script>  
+<!-- //js -->
+<!-- web-fonts -->   
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- //web-fonts -->
+<style>
+    .col-div-3 
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner 
+    {
+    background: url("{% static 'images/custlogbg1.jpg' %}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    position: relative;
+    }
+    .box 
+    {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-align: center;
+        color: #333333;
+    }
+    .table 
+    {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        box-shadow: 0px 5px 15px rgba(23, 1, 1, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .table th 
+    {
+        background-color: #f2f2f2;
+        padding: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        color: rgb(14, 128, 14);
+    }
+    .table td 
+    {
+        padding: 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+        color: black;
+    }
+    .table td:last-child {
+        font-weight: bold;
+        color: black;
+    }
+    .table input[type="number"] 
+    {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .table .quantity 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .table .qty-btn 
+    {
+        background-color: #f2f2f2;
+        border: none;
+        padding: 5px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 5px;
+    }
+    .table .qty-btn:hover 
+    {
+        background-color: #ddd;
+    }
+    .table .qty-btn:focus  
+    {
+        outline: none;
+    }
+    .table .qty-btn:active
+    {
+        transform: translateY(1px);
+    }
+    .table tr:hover  
+    {
+        background-color: #f5f5f5;
+    }
+    .table input[type="text"] 
+    {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        outline: none;
+    }
+    .table input[type="text"]:focus 
+    {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    }
+    .remove-btn 
+    {
+        background-color: #aafd0f;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .remove-btn:hover 
+    {
+        background-color: #00d0ff;
+    }
+    .remove-btn:focus 
+    {
+        outline: none;
+    }
+    .remove-btn:active 
+    {
+        transform: translateY(1px);
+    }
+    body 
+    {
+  color: #333333;
+}  
+</style>
+<script type="text/javascript">
+ function loadtotal(food_price, food_id) 
+ {
+    var quantity = parseFloat(document.getElementById(food_id+"_q").value);
+    var total = 0;    
+    if (Number.isInteger(quantity)) 
+    {
+        total = (parseFloat(quantity)) * food_price;
+    } else   
+    {
+        var quantityKg = Math.floor(quantity);
+        var quantityGrams = (quantity - quantityKg) * 1000;
+        total = (parseFloat(food_price) * quantityKg) + ((parseFloat(food_price) / 1000) * quantityGrams);
+    }  
+    document.getElementById(food_price + "_" + food_id + "_total").value = total.toFixed(2);
+    updateTotal();
+}
+    function updateTotal() 
+    {
+      var total = 0;
+      var inputs = document.querySelectorAll('input[id$="_total"]');
+      for (var i = 0; i < inputs.length; i++) 
+      {
+        total += parseFloat(inputs[i].value);
+      }
+      document.getElementById('cart_total').innerHTML = '₹' + total.toFixed(2);
+    }
+    // Call updateTotal() on page load to initialize the total
+    window.onload = function() 
+    {
+      updateTotal();
+    };  
+    // Call updateTotal() whenever the number of products or their quantity changes
+    var inputs = document.querySelectorAll('input[id^="food_id"]');
+    for (var i = 0; i < inputs.length; i++)    
+    {
+      inputs[i].addEventListener("change", updateTotal);
+    }   
+    function finalsubmit()   
+    {
+        var total = 0;
+        //alert('hi0');
+        var inputs = document.querySelectorAll('input[id$="_total"]');
+        //alert('hiinputs');
+        var pids=document.querySelectorAll('input[id$="_pid"]');
+        //alert('hi1');
+        var quantitys=document.querySelectorAll('input[id$="_q"]');
+        //alert('hi2');
+        var strpids='';
+        var strquantitys='';
+        //alert('hi3');      
+      for (var i = 0; i < inputs.length; i++)      
+      {
+        total += parseFloat(inputs[i].value);
+        if(i==0)
+        {
+              strpids=pids[i].value;
+              strquantitys=quantitys[i].value;  
+        }
+        else
+        {
+            strpids=strpids+","+ pids[i].value;
+              strquantitys=strquantitys+","+ quantitys[i].value;
+        }
+      }
+      //alert(strpids);
+      //alert(strquantitys);
+      //alert(total);
+      var final=strpids+"@"+strquantitys;
+      //alert(final);
+      document.getElementById("finalsub").value=final;
+return true;
+    }    
+</script>
+<body> 
+	<!-- banner -->
+	<div class="banner">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="{% url 'index'%}">SDGS</a></h1>
+				</div> 
+				<div class="menu">
+					<a href="#" class="navicon"></a> 
+					<div class="toggle"> 
+						<ul class="toggle-menu">
+                            <li><a href="{% url 'myaccount'%}" > My Account</a></li>
+							<li><a href="{% url 'new_menu' %}"class="icon-a"> Menu</a></li>
+							<li><a href="{% url 'sendfeedback' %}"class="icon-a"> Send feedback</a></li> 						
+							<li><a href="{% url 'order_status' %}"class="icon-a"> View order status</a></li>
+							<li><a href="{% url 'logout' %}"class="icon-a"> Logout</a></li>
+						</ul>
+					</div> 
+				</div>   
+				<div class="social-w3licon">
+					<a href="http://twitter.com/rowdymani_905?t=9rM3b2ab8toCAPS0SINwzw&s=09" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+					<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a> 
+					<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a> 
+					<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //header --> 
+		<!-- banner-text -->
+		<div class="banner-text w3labout-bnr"> 
+			<div class="container">  
+				<h2><a href="{% url 'index'%}">Home</a> / cart</h2>   
+			</div>
+		</div>
+		<!-- //banner-text -->
+	</div>
+	<!-- //banner -->   
+	<div class="col-div-3"> 
+        <div class="box">
+            <form method="post" action="add_cart" id="od" name="od">
+                {% csrf_token %}
+                <div>
+                    <table class="table">
+                        <thead>
+                            
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Item_Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">quantity </th>
+                                <th scope="col">Total </th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in menu %}
+                            <tr>
+                                <td><img src="media/{{x.name }}" alt="Card 1" width="50" height="50"/></td>
+                                <td>{{x.food_name }}</td>
+                                <td>{{x.food_price}}</td>
+                                <td>
+                                    <input type="text" id="{{x.food_id}}_pid" value="{{x.food_id}}" style="display:none"/>
+                                    <input type="text" id="{{x.food_id}}_q" min="0.01" name="{{x.food_id}}_q" value="{{x.quantity}}" onchange="loadtotal('{{x.food_price}}', '{{x.food_id}}')">  Enter quantity in kg or No.of items                                   
+                                </td>
+                                <td>
+                                    <input type="text" id="{{x.food_price}}_{{x.food_id}}_total" name="{{x.food_id}}_total" value="{{x.total_price}}" readonly>
+                                </td>
+                                <td>
+                                    <button type="submit" formaction="{% url 'remove_cart' x.food_id %}"
+                                        style="background-color: #bdf662; cursor: pointer; color: rgb(3, 3, 3); padding: 5px 10px; border-radius: 5px; font-size: 14px;">Remove</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-div-3">
+        <div class="box">
+            <div>
+                <p>Cart Total: <span id="cart_total">₹0.00</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-div-4">
+        <div class="box">
+          <form action="{% url 'check' %}"method="post">
+            {% csrf_token %}      
+                <div style="display: flex; justify-content: center;">
+                  <input type="text" name="finalsub" id="finalsub" style="display:none"/>
+                  <button type="submit" name="checkout" onclick="return finalsubmit()" style="background-color: #bdf662; cursor: pointer; color: rgb(3, 3, 3); font-size: 15px; padding: 5px 10px; border-radius: 5px;">Checkout</button>                
+                </div>
+              </form>  
+        </div>
+      </div>
+	<!-- modal-about -->
+	<!-- //modal-about -->  
+	<!-- bars-js -->   
+	<script src="js/bars.js"></script>
+	<!-- //bars-js --> 
+	<!-- menu-js -->
+	<script>
+		$('.navicon').on('click', function (e) 
+        {
+		  e.preventDefault();
+		  $(this).toggleClass('navicon--active');
+		  $('.toggle').toggleClass('toggle--active');
+		});
+	</script> 
+	<!-- //menu-js -->
+	<!-- jarallax -->  
+	<script src="js/SmoothScroll.min.js"></script> 
+	<script src="js/jarallax.js"></script> 
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>  
+	<!-- //jarallax --> 
+	<!-- start-smooth-scrolling --> 
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>	
+	<script type="text/javascript">
+			jQuery(document).ready(function($) 
+            {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //end-smooth-scrolling -->	 
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() 
+        {
+			/*
+			var defaults = 
+            {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({ easingType: 'easeOutQuart' });		
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->  		
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

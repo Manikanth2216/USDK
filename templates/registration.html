@@ -1,0 +1,277 @@
+{% load static %}
+<html lang="en" dir="ltr">
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    <style>
+      body 
+      {
+        background-image: url("{% static 'images/2.jpeg' %}");
+        background-color: #08607e;
+        background-size: auto;
+        background-position: up;
+        background-repeat: no-repeat;
+      }
+      form 
+      {
+        background-color: #f2f2f2;
+        width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      label 
+      {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="tel"],
+      .radio input[type="radio"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus {
+        outline: none;
+        box-shadow: 0 0 5px #87CEEB;
+      }
+      form:focus-within 
+      {
+        border: 2px solid #87CEEB;
+      }
+      input[type="submit"] 
+      {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover 
+      {
+        background-color: #3e8e41;
+      }
+      .text 
+      {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .text a 
+      {
+        color: #4CAF50;
+      }
+      .text a:hover 
+      {
+        text-decoration: underline;
+      }
+      form 
+      {
+        width: 500px;
+        margin: 0 auto;
+      }
+      form 
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+      }
+    
+      /* Additional CSS for radio buttons */
+      .radio input[type="radio"] + label {
+        display: inline-block;
+        margin-right: 10px;
+      } 
+      /* Additional CSS for radio buttons */
+/* Additional CSS for radio buttons and input fields */
+.radio label {
+  display: inline-flex; /* Use flex display for proper alignment */
+  align-items: center; /* Vertically center align radio button and label */
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  margin-right: 20px; /* Increased margin-right for space */
+}
+
+.radio label:hover {
+  background-color: #e0e0e0;
+}
+
+.radio input[type="radio"] {
+  display: none;
+}
+
+.radio input[type="radio"] + label {
+  position: relative;
+}
+
+.radio input[type="radio"] + label::before {
+  content: "\25A2"; /* Unicode character for an empty square (default) */
+  margin-right: 5px; /* Add space between radio button and label */
+}
+
+.radio input[type="radio"]:checked + label::before {
+  content: "\25A0"; /* Unicode character for a filled square (checked) */
+}
+
+/* Add space for the input fields */
+.input-box {
+  margin-bottom: 20px; /* Increased margin-bottom for space */
+}
+    </style>
+
+    </style>
+    
+
+
+
+
+
+
+    <script>
+      function displayAlert() {
+        alert("Password must be 8 or fewer characters long.");
+      }
+      
+      function validate() {
+        var name = document.getElementById("name").value;
+        if (name == "" || name == "Null"){
+          alert("Please enter a username");
+          return false;
+        }
+        else if(name.length<6)
+        {
+        alert("Username length should be atleast 6 characters");
+        return false;
+        }
+        
+        var p = document.getElementById("pwd").value;
+        if (p == "" || p == "Null") {
+          alert("Please enter a password");
+          return false;
+        } else if (p.length < 6) {
+          alert("Password must consist of at least 6 characters");
+          return false;
+        }
+        
+        var cp = document.getElementById("cpwd").value;
+        if (cp == "" || cp == "Null") {
+          alert("Please enter confirm password");
+          return false;
+        }
+        
+        if (p != cp) {
+          alert("Password and confirm password must be the same");
+          return false;
+        }
+        
+        var email = document.getElementById("email").value;
+        if (email == "" || email == "Null") {
+          alert("Please enter an email");
+          return false;
+        } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
+          alert("Enter a valid Email Id");
+        } 
+        
+        var a = document.getElementById("phone_no").value;
+        if (a == "" || a == "Null") {
+          alert("Enter a phone number");
+          return false;
+        } else if (a.length < 10) {
+          alert("Please enter a 10-digit mobile number"); 
+          return false;
+        } else if (a.length > 10) {
+          alert("Enter 10-digit mobile number");
+          return false;
+        } else if (isNaN(a)) {
+          alert("Mobile Number should be digits");
+          return false;
+        } else if (a.charAt(0) == '1' || a.charAt(1) == '2' || a.charAt(2) == '3') {
+          alert("Mobile number should start with 9 or 8 or 7 or 6");
+          return false;
+        }
+        
+        var gender = document.getElementsByName("gender");
+        var sgender = "";
+        for (var i = 0; i < gender.length; i++) {
+          if (gender[i].checked == true) {
+            sgender = gender[i].value;
+            break;
+          }
+        }
+        
+        if (sgender == "") {
+          alert("Please select gender");
+          return false;
+        } else {
+          document.getElementById("selectedgender").value = sgender;
+        }
+        
+        return true;
+      }  
+    </script>
+    {% if status %}
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        alert('{{ status }}');
+      });
+    </script>
+    {% endif %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="form-validation"  action="" method="POST">
+        {%csrf_token%}
+        <h2>Registration</h2>
+        <div class="input-box">
+          <input type="text" id="name" name="name" placeholder="Enter your name" >
+        </div>
+        <div class="input-box">
+          <input type="password" id="pwd" name="pwd" placeholder="Create password">
+        </div>
+        <div class="input-box">
+          <input type="password" id="cpwd" name="cpwd" placeholder="Confirm password" >
+        </div>
+        <div class="input-box">
+          <input type="email"  id="email" name="email" placeholder="Enter your email" >
+        </div>
+        <div class="input-box">
+          <input type="tel" id="phone_no" name="phone_no" placeholder="Enter your phone number" >
+        </div>
+        <label>Gender:</label>
+        <div class="radio">
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+        </div>
+        <div class="input-box button">
+          <input type="submit"  name="Register" value="Register" onclick="return validate()"></input>
+        </div>
+        <div class="text">
+          <h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
+        </div> 
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,467 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>USDK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dine Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+	<script
+	type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet"> <!-- font-awesome icons -->
+<link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}" type="text/css" media="all" />
+<!-- Owl-Carousel-CSS -->
+<link href="{%static 'css/wickedpicker.css'%}" rel="stylesheet" type='text/css' media="all" />
+<!-- time-picker-CSS -->
+<!-- //Custom Theme files -->
+<!-- js -->
+<script src="{% static 'js/jquery-2.2.3.min.js'%}"></script>
+<!-- web-fonts -->   
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- //web-fonts -->
+<style>
+	.footer {
+  color: white;
+}
+
+
+.header {
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.menu a:hover {
+  color: #000;
+}
+
+.navicon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url('path-to-your-navicon-image') no-repeat center center;
+  background-size: contain;
+}
+
+.toggle {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.toggle-menu li {
+  margin-bottom: 10px;
+}
+
+.toggle-menu a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+}
+
+.toggle-menu a:hover {
+  color: #000;
+}
+
+.social-w3licon {
+  margin-top: 10px;
+}
+
+.social-button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+  background-color: #0b0b0b;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.social-button i {
+  font-size: 20px;
+}
+
+.header{
+	background-image: url('/static/images/1.jpg');
+}
+.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		div.align a {
+			display: block;
+			/* Make the link a block-level element */
+			color: #000;
+			/* Change the color to make the link more visible */
+			font-weight: bold;
+			/* Add some weight to the font to make it stand out */
+			text-decoration: none;
+			/* Remove the default underline */
+			padding: 10px;
+			/* Add some padding to make the clickable area larger */
+			border: 1px solid #000;
+			/* Add a border to make the link stand out */
+			border-radius: 5px;
+			/* Add some border radius to make it look nicer */
+			transition: all 0.3s ease-in-out;
+			/* Add a smooth transition on hover */
+			margin: 0 auto;
+			/* Center the link horizontally within its container */
+			text-align: center;
+		}
+
+		div.align a:hover {
+			background-color: #000;
+			/* Change the background color on hover */
+			color: #fff;
+			/* Change the text color on hover */
+			border-color: #000;
+			/* Change the border color on hover */
+		}
+
+		div.align p {
+			text-align: center;
+			/* Center the paragraph within its container */
+			margin-top: 10px;
+			/* Add some space between the link and the paragraph */
+		}
+
+
+
+
+		/* Dropdown button */
+		.dropbtn {
+			background-color: transparent;
+			color: #111;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
+
+		/* Dropdown button on hover & focus */
+
+
+		/* Dropdown content */
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			z-index: 1;
+			top: 100%;
+			left: 0;
+			background-color: #fff;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			padding: 12px 16px;
+		}
+
+		/* Links inside the dropdown */
+		.dropdown-content a {
+			color: #333;
+			font-size: 14px;
+			text-decoration: none;
+			display: block;
+			padding: 6px 0;
+		}
+
+		/* Links on hover */
+		.dropdown-content a:hover {
+			color: #f1c40f;
+		}
+
+		/* Show the dropdown menu on hover */
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		.footer {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 50px 0;
+}
+
+.footer h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.footer p {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.footer a {
+  color: #ffffff;
+}
+
+.footer a:hover {
+  color: #8bc34a;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer hr {
+  border-top: 1px solid #707070;
+  margin: 40px 0;
+}
+.d-flex justify-content-center{
+	text-align: center;
+}
+
+@media (max-width: 767px) {
+  .footer h4 {
+    margin-top: 40px;
+  }
+
+
+}
+
+
+
+
+</style>
+</head>
+<body> 
+	<!-- banner -->
+	<div class="banner">
+		<!-- header -->
+		<div class="header"> 
+			<div class="container">
+				<div class="menu">
+					<a href="#" class="navicon"></a> 
+					<div class="toggle"> 
+						<ul class="toggle-menu">
+							<li><a href="{% url 'index' %}" > Home</a></li>
+							<li><a href="{% url 'about' %}"> About</a></li>
+							<li><a href="{% url 'gallery' %}"> Gallery</a></li>
+							
+							
+							<li class="dropdown">
+								<a href="#" class="dropbtn">Login <i class="fa fa-caret-down"></i></a>
+								<div class="dropdown-content">
+									<a href="{% url 'admin' %}">Admin</a><br>
+									<a href="{% url 'login' %}">Customer</a>
+									<a href="{% url 'registration' %}">Register</a>
+								</div>
+							</li>
+						</ul>
+					</div> 
+				</div>   
+				<div class="social-w3licon">
+					<a href="http://twitter.com/rowdymani_905?t=9rM3b2ab8toCAPS0SINwzw&s=09" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.facebook.com/" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.google.com/" class="social-button google"><i class="fa fa-google-plus"></i></a>
+					<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+				  </div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //header -->
+	</div>
+		<!-- //header --> 
+		<!-- banner-text -->
+		
+		<!-- //banner-text -->
+	</div>
+	<!-- //banner -->   
+	<!-- about -->
+	<div class="about">
+		<div class="container"> 
+			<div class="w3ls-title"> 
+				<h3 class="agileits-title">About us</h3>
+			</div>
+			<p class="about-w3text">Welcome to "Sai datha Grocery Store" – your one-stop destination for all your grocery needs. Founded with a passion for quality and convenience, our store has quickly become a beloved cornerstone of the community.
+				Our mission is simple: to provide you with a seamless and enjoyable shopping experience at your convenience. Through our user-friendly website, you can now browse an extensive selection of the grocery items you are in need of.
+				We understand that convenience is key in today's fast-paced world. That's why our website is designed with you in mind, offering intuitive navigation, secure payment options. Whether you're a busy professional, a homemaker, or someone who simply prefers shopping from home, we're here to happily serve you and make your life easier.
+                <br>
+                Thank you for choosing us as your trusted grocery partner. Join us in our commitment to quality, convenience, and community as we continue to evolve and serve you better with each passing day.We strongly believe that we can live upto your expectations of providing quality for any quantity!
+			
+			</p>
+				<div class="services-row-agileinfo">
+					<div class="col-sm-4 col-xs-4 services-w3grid">
+						<span class="glyphicon glyphicon-heart hi-icon" aria-hidden="true"></span>
+						<h5>Since 2001</h5>
+						<p>We have been providing our customers with fresh staples.</p>
+					</div>
+					<div class="col-sm-4 col-xs-4 services-w3grid">
+						<span class="glyphicon glyphicon-list-alt hi-icon" aria-hidden="true"></span>
+						<h5>Menu</h5>
+						<p>We offer a wide variety of groceries, household items and other requirements.</p>
+					</div>
+				<div class="clearfix"> </div>
+			</div> 
+		 </div>
+	</div>
+	<!-- //about -->
+
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-5 mb-md-0">
+					<h4> About Us </h4>
+					<br>
+					<p>Our Grocery Store is a virtual platform that allows you to shop for groceries, household items and other requirements you are in search of.We have a wide range of products of high quality.Your Satisfaction is our Commitment.
+						We know your busy schedule ,so our website is the perfect spot.You can place your order ,check your order status and collect them at our store at the location mentioned.Please don't forget to input your valuable review at our feedback section.Hope you will continue to shop with us !
+						<br>
+						"Your requirements Our service is the motto"</p>
+				</div>
+	
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-5 mb-md-0">
+					<h4> Our Location </h4>
+					<br>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d260.12607050273306!2d79.1169387158875!3d18.4376784693389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bccd96bcc18632b%3A0xbf6b80a198ee6366!2sSAI%20DATHA%20KIRNAM!5e1!3m2!1sen!2sin!4v1685444414928!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				</div>
+	
+				<div class="col-lg-4 col-md-12 col-sm-12">
+					<h4> Contact Us </h4>
+					<br>
+					<p><i class="fa fa-map-marker"></i> Saidatha kiranam, Mankammathota, Karimnagar, Telangana</p>
+					<p><i class="fa fa-phone"></i> (+91)6301178421</p>
+					<p><i class="fa fa-envelope"></i> manikanthmadishatti4@gmail.com</p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-center">Copyright © 2023
+						<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==">Sai Datha</a> All rights are
+						reserved.
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+<!-- //modal-about -->
+	<!-- Owl-Carousel-JavaScript -->
+
+	<script src="{%  static 'js/owl.carousel.js'% }"></script>
+	<script>
+		$(document).ready(function () {
+			$("#owl-demo").owlCarousel({
+				items: 3,
+				lazyLoad: true,
+				autoPlay: true,
+				pagination: false,
+			});
+		});
+	</script>
+	<script src="{%  static 'js/owl.carousel.js'% }"></script>
+	<script>
+		$(document).ready(function () {
+			$("#owl-demo").owlCarousel({
+				items: 3,
+				lazyLoad: true,
+				autoPlay: true,
+				pagination: false,
+			});
+		});
+	</script>
+	<!-- //Owl-Carousel-JavaScript -->
+	<!-- menu-js -->
+	<script>
+		$('.navicon').on('click', function (e) {
+			e.preventDefault();
+			$(this).toggleClass('navicon--active');
+			$('.toggle').toggleClass('toggle--active');
+		});
+	</script>
+	<!-- //menu-js -->
+	<!-- Progressive-Effects-Animation-JavaScript -->
+	<script type="text/javascript" src="{% static 'js/numscroller-1.0.js'%}"></script>
+	<!-- //Progressive-Effects-Animation-JavaScript -->
+	<!-- jarallax -->
+	<script src="{% static 'js/SmoothScroll.min.js'%}"></script>
+	<script src="{ %  static 'js/jarallax.js' % }"></script>
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>
+	<!-- //jarallax -->
+	<!-- start-smooth-scrolling -->
+	<script type="text/javascript" src="{% static 'js/move-top.js'%} "></script>
+	<script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{% static 'js/bootstrap.js'%}"></script>
+</body>
+</html>

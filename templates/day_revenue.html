@@ -1,0 +1,174 @@
+{% load static %}
+<!Doctype HTML>
+<html>
+<head>
+    
+	<title> </title>
+	<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css"/>
+<style>
+	table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+         td {
+            text-align: center;
+            padding: 8px;
+			color: rgb(19, 2, 2);
+        }
+		ul{
+			text-align: left;
+		}
+
+        th {
+            background-color: #37bc3b;
+            color: rgb(224, 214, 214);
+        }
+
+        tr:nth-child{background-color: #f2f2f2}
+
+</style>
+	<script>
+		 function checkdate()
+        {
+           var sdate=document.getElementById('date').value;
+           if(sdate==""){
+            alert('please select date');
+            return false;
+           }
+           return true;
+        }
+		
+		function validate(){
+			if(document.getElementById('date').value=="")
+			{
+				alert("Please select date");
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+
+
+
+<body>
+  
+	
+	<div id="mySidenav" class="sidenav">
+	<p class="logo"><span>SDGS</span></p>
+	<a href="{% url 'simple_upload' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Update Menu</a>
+	  <a href="{% url 'view_menu' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Menu</a>
+	  
+	  <a href="{% url 'view_orders' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Orders</a>
+	  
+	  <a href="{% url 'view_feedback' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View  Feedback</a>
+	  <a href="{% url 'a_logout' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Logout</a>
+
+</div>
+<div id="main">
+
+	<div class="head">
+		<div class="col-div-6">
+<span style="font-size:30px;cursor:pointer; color: rgb(10, 4, 4);" class="nav"  >&#9776; Dashboard</span>
+<span style="font-size:30px;cursor:pointer; color: rgb(20, 1, 1);" class="nav2"  >&#9776; Dashboard</span>
+</div>
+	
+	<div class="col-div-6">
+	<div class="profile">
+		
+		<img src="{% static 'images/icon.jpg' %}" alt="Profile Image" class="pro-img profile" style="float: left; margin-left: 400px;">
+
+		
+		
+		<p style="float: left; margin-left: 400px;">USDK Admin</p>
+	</div>
+</div>
+	<div class="clearfix"></div>
+</div>
+<form id="f1" method="POST" action="day_revenue">
+	{% csrf_token %} 
+<div class="container">
+	
+				   
+		<label for="date">Date</span></label>
+		  :<input type="date" id="date" name= "date" >
+		  <input type="submit" value="Search" onclick="return validate()" /> 
+		  
+		  
+		  <br>
+		  <br>
+		  <table class="table table-striped">
+			<table>
+				<thead>
+				  <tr>
+					<th>Order ID</th>
+					<th>Customer ID</th>
+					<th>Order date</th>
+					<th>Total Price</th>
+					<th>Items</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {% for order_id, order in orders_dict.items %}
+					<tr>
+					  <td>{{ order_id }}</td>
+					  <td>{{ order.cust_id }}</td>
+					  <td>{{ order.order_date }}</td>
+					  <td>{{ order.total_price }}</td>
+					  <td>
+						<ul>
+						  {% for food_item in order.food_items %}
+							<li>{{ food_item.food_name }} ({{ food_item.quantity }})</li>
+						  {% endfor %}
+						</ul>
+					  </td>
+					</tr>
+				  {% endfor %}
+				  
+			  </table>
+			  <h3>Total Revenue: {{ total_revenue }}</h3>
+
+						  
+
+	<div class="clearfix"></div>
+	<br/>
+	
+	
+		
+	<div class="clearfix"></div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+  $(".nav").click(function(){
+    $("#mySidenav").css('width','70px');
+    $("#main").css('margin-left','70px');
+    $(".logo").css('visibility', 'hidden');
+    $(".logo span").css('visibility', 'visible');
+     $(".logo span").css('margin-left', '-10px');
+     $(".icon-a").css('visibility', 'hidden');
+     $(".icons").css('visibility', 'visible');
+     $(".icons").css('margin-left', '-8px');
+      $(".nav").css('display','none');
+      $(".nav2").css('display','block');
+  });
+
+$(".nav2").click(function(){
+    $("#mySidenav").css('width','300px');
+    $("#main").css('margin-left','300px');
+    $(".logo").css('visibility', 'visible');
+     $(".icon-a").css('visibility', 'visible');
+     $(".icons").css('visibility', 'visible');
+     $(".nav").css('display','block');
+      $(".nav2").css('display','none');
+ });
+
+</script>
+
+</body>
+
+
+</html>

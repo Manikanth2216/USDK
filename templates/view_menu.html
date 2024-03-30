@@ -1,0 +1,154 @@
+{% load static %}
+<!Doctype HTML>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" />
+	<style>
+		.sidenav 
+		{
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+		/* Styling for the table */
+		table 	
+		{
+            border-collapse: collapse;
+            width: 100%;
+        }
+         td 	 
+		 {
+            text-align: center;
+            padding: 8px;
+			color: rgb(4, 4, 4);
+        }
+        th 	
+		{
+            background-color: #37bc3b;
+            color: #fff;
+			height: 35px;
+        }
+        tr:nth-child{background-color: #f2f2f2}
+        .delete-btn 		
+		{
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+        .delete-btn:hover 		
+		{
+            background-color: #d32f2f;
+        }
+a:hover 
+{
+  color: #0056b3;
+  text-decoration: underline;
+}
+a[href*='edit_sub_menu'] 
+{
+  color: #3124e4;
+}
+a[href*='del_sub_menu'] 
+{
+  color: red;
+}
+	</style>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+		<p class="logo"><span>SDGS</span></p>		
+		<a href="{% url 'simple_upload' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Update Menu</a>
+	  <a href="{% url 'view_menu' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Menu</a>	  
+	  <a href="{% url 'view_orders' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Orders</a>	  
+	  <a href="{% url 'view_feedback' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View  Feedback</a>
+	  <a href="{% url 'day_revenue' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Day Revenue</a>
+	  <a href="{% url 'a_logout' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Logout</a>
+	</div>
+	<div id="main">
+		<div class="head">
+			<div class="col-div-6">
+				<span style="font-size:30px;cursor:pointer; color: black;" class="nav">&#9776; Dashboard</span>
+				<span style="font-size:30px;cursor:pointer; color: black;" class="nav2">&#9776; Dashboard</span>
+			</div>
+		</div>
+		<div class="col-div-6">
+		<div class="profile">		
+			<img src="{% static 'images/icon.jpg' %}" alt="Profile Image" class="pro-img profile" style="float: left; margin-left: 400px;">	
+			<p style="float: left; margin-left: 400px;">SDGS Admin</p>
+		</div>
+	</div>
+		<div class="clearfix"></div>
+		<br />
+		<form method="POST">
+			{%csrf_token%}
+			<h1> Menu</h1>
+			<table >
+				<thead>				
+					<tr>					
+						<th >Item_id</th>
+						<th >Item_name</th>
+						<th >Item_price</th>
+						<th >Item_expire</th>
+                        <th >Item_quantity</th>
+						<th >action</th>
+                        <td></td>
+						<td></td>                    
+					</tr>				
+				</thead>
+				<tbody>
+					{% for x in menu %}
+					<tr>
+						<td >{{x.food_id}}</td>
+						<td>{{x.food_name}}</td>
+						<td>{{x.food_price}}</td>
+						<td>{{x.expire}}</td>
+						<td>{{x.quantity}}</td>					
+						<td><a href="{% url 'edit_sub_menu' x.food_id%}">&nbsp;&#9998;Edit</a>&nbsp;&nbsp;<a href="{% url 'del_sub_menu' x.food_id%}">&nbsp;&#128465;Delete</a></td>				
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</form>
+		</tbody>
+		</table>
+		<div class="clearfix"></div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".nav").click(function () 
+		{
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('visibility', 'hidden');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".nav").css('display', 'none');
+			$(".nav2").css('display', 'block');
+		});
+		$(".nav2").click(function () 
+		{
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".nav").css('display', 'block');
+			$(".nav2").css('display', 'none');
+		});
+	</script>
+</body>
+</html>

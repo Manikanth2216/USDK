@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>USDK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dine Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">   
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet"> <!-- font-awesome icons --> 
+<!-- //Custom Theme files --> 
+<!-- js -->
+<script src="{% static 'js/jquery-2.2.3.min.js'%}"></script>  
+<!-- //js -->
+<!-- web-fonts -->   
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- //web-fonts -->
+<style>
+    /* Inline CSS */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+	.banner {
+     background: url("{% static 'images/custlogbg1.jpg' %}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    position: relative;
+    }
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    input[type="text"], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .error {
+        color: red;
+    }
+    label {
+  font-size: 16px; /* or any other font size you prefer */
+}
+    .rating {
+display: inline-flex;
+flex-direction: row-reverse;
+}
+.rating input {
+display: none;
+}
+.rating label {
+color: #ccc;
+font-size: 2.5rem;
+padding: 0.25rem;
+cursor: pointer;
+}
+.rating label:before {
+content: '\2606';
+}
+.rating input:checked ~ label:before {
+content: '\2605';
+color: #e0d300;
+}
+form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+			max-width: 500px;
+			margin: auto;
+		}
+		label {
+			display: block;
+			margin-top: 10px;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 3px;
+			background-color: #f2f2f2;
+			margin-top: 5px;
+			margin-bottom: 15px;
+			box-sizing: border-box;
+			font-size: 16px;
+			color: #333;
+			-webkit-transition: background-color 0.3s ease;
+			transition: background-color 0.3s ease;
+		}
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="number"]:focus {
+			background-color: #e6e6e6;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 18px;
+			-webkit-transition: background-color 0.3s ease;
+			transition: background-color 0.3s ease;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+</style>
+</head>
+<body> </head>
+<body> 
+	<!-- banner -->
+	<div class="banner">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="{% url 'index'%}">SDGS</a></h1>
+				</div> 
+				<div class="menu">
+					<a href="#" class="navicon"></a> 
+					<div class="toggle"> 
+						<ul class="toggle-menu">
+							<li><a href="{% url 'myaccount'%}" > My Account</a></li>
+							<li><a href="{% url 'new_menu' %}"class="icon-a"> Menu</a></li>
+							<li><a href="{% url 'view_cart'%}" > View cart</a></li> 
+							<li><a href="{% url 'order_status' %}"class="icon-a"> View order status</a></li>
+							<li><a href="{% url 'logout' %}"class="icon-a"> Logout</a></li>
+						</ul>
+					</div> 
+				</div>   
+				<div class="social-w3licon">
+					<a href="http://twitter.com/rowdymani_905?t=9rM3b2ab8toCAPS0SINwzw&s=09" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.facebook.com/" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.google.com/" class="social-button google"><i class="fa fa-google-plus"></i></a>
+					<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+				  </div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //header --> 
+		<!-- banner-text -->
+		<div class="banner-text w3labout-bnr"> 
+			<div class="container">  
+				<h2><a href="{% url 'index'%}">Home</a> / Feedback</h2>   
+			</div>
+		</div>
+		<!-- //banner-text -->
+	</div>
+	<!-- //banner -->   
+    <div class="container">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" id="cust_id" name="cust_id" value="{{ cust_id }}">
+          <label for="food_id">Food name:</label>
+          <select id="fid" name="fid">
+            <option selected disabled>Select an item</option>
+            {%for x in fb%}
+            <option value="{{x.food_id}}">{{x.food_name}}</option>
+            {%endfor%}
+        </select>
+          <br><br>
+          <label for="rating">Rating:</label>
+          <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5"></label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4"></label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3"></label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2"></label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1"></label>
+          </div> 
+          <br><br>
+          <label for="comment">Comment:</label>
+          <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+          {% if errors.comment %}
+              <p class="error">{{ errors.comment }}</p>
+          {% endif %}
+          <br><br>
+          <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script>
+        /* Inline JS */
+        const rating = document.getElementById("rating");
+        const comment = document.getElementById("comment");
+        const form = document.querySelector("form");
+        form.addEventListener("submit", (event) => {
+            if (rating.value === "") {
+                alert("Please select a rating.");
+                event.preventDefault();
+            }
+            if (comment.value === "") {
+                alert("Please enter a comment.");
+                event.preventDefault();
+            }
+        });
+    </script>
+	<!-- modal-about -->
+	<!-- //modal-about -->  
+	<!-- bars-js -->   
+	<script src="js/bars.js"></script>
+	<!-- //bars-js --> 
+	<!-- menu-js -->
+	<script>
+		$('.navicon').on('click', function (e) {
+		  e.preventDefault();
+		  $(this).toggleClass('navicon--active');
+		  $('.toggle').toggleClass('toggle--active');
+		});
+	</script> 
+	<!-- //menu-js -->
+	<!-- jarallax -->  
+	<script src="js/SmoothScroll.min.js"></script> 
+	<script src="js/jarallax.js"></script> 
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>  
+	<!-- //jarallax --> 
+	<!-- start-smooth-scrolling --> 
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>	
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //end-smooth-scrolling -->	 
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() 
+		{
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->  		
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

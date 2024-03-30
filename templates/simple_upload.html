@@ -1,0 +1,170 @@
+{% load static %}
+<html>
+<title>SDGS</title>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" />
+    <style>
+        form 
+        {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        label 
+        {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select 
+        {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button[type="submit"] 
+        {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 2px 2px;
+            cursor: pointer;
+        }
+        .quantity 
+        {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        a:hover 
+        {
+            color: #010503;
+            text-decoration: underline;
+        }
+        /* Styling for the side navigation */
+.sidenav 
+{
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+}
+/* Styling for the links inside the side navigation */
+.sidenav a 
+{
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+/* Hover styling for the links inside the side navigation */
+.sidenav a:hover 
+{
+    background-color: #111;
+}
+    </style>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" />
+    <script>
+        function val() 
+        {
+            var Category = document.getElementById("food_category").value;
+            if (Category == "veg") 
+            {
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <p class="logo"><span>SDGS</span></p>
+        <a href="{% url 'simple_upload' %}" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Update
+            Menu</a>
+        <a href="{% url 'view_menu' %}" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Menu</a>
+        <a href="{% url 'view_orders' %}" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Orders</a>
+        <a href="{% url 'view_feedback' %}" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View
+            Feedback</a>
+            <a href="{% url 'day_revenue' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Day Revenue</a>
+        <a href="{% url 'a_logout' %}" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Logout</a>
+    </div>
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: black;" class="nav">&#9776; Dashboard</span>
+                <span style="font-size:30px;cursor:pointer; color: black;" class="nav2">&#9776; Dashboard</span>
+            </div>
+            <div class="col-div-6">
+                <div class="profile">
+                    <img src="{% static 'images/icon.jpg' %}" alt="Profile Image" class="pro-img profile"
+                        style="float: left; margin-left: 400px;">
+                    <p style="float: left; margin-left: 400px;">SDGS Admin</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <h1>Add Item</h1>
+            {% block content %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="food_id">Item ID:</label>
+                <input type="text" id="food_id" name="food_id"><br><br>
+                <label for="food_name">Item Name:</label>
+                <input type="text" id="food_name" name="food_name"><br><br>
+                <label for="food_price">Item Price:</label>
+                <input type="number" id="food_price" name="food_price"><br><br>
+                <label for="expire">Expire date:</label>
+                <input type="text" id="expire" name="expire"><br><br>
+                <label for="quantity">Available Item Quantity :</label>
+                <input type="number" id="quantity" name="quantity"><br><br>
+                <input type="file" name="myfile">
+                <button type="submit">Upload</button>
+            </form>
+            <br /><br /><br />
+            {% endblock %}
+            <div class="clearfix"></div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(".nav").click(function () 
+            {
+                $("#mySidenav").css('width', '70px');
+                $("#main").css('margin-left', '70px');
+                $(".logo").css('visibility', 'hidden');
+                $(".logo span").css('visibility', 'visible');
+                $(".logo span").css('margin-left', '-10px');
+                $(".icon-a").css('visibility', 'hidden');
+                $(".icons").css('visibility', 'visible');
+                $(".icons").css('margin-left', '-8px');
+                $(".nav").css('display', 'none');
+                $(".nav2").css('display', 'block');
+            });
+            $(".nav2").click(function () 
+            {
+                $("#mySidenav").css('width', '300px');
+                $("#main").css('margin-left', '300px');
+                $(".logo").css('visibility', 'visible');
+                $(".icon-a").css('visibility', 'visible');
+                $(".icons").css('visibility', 'visible');
+                $(".nav").css('display', 'block');
+                $(".nav2").css('display', 'none');
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+{% load static %}
+<html>
+
+<head>
+    <style>
+
+
+
+        form {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px #ccc;
+            width: 50%;
+            margin-left: 30%;
+            
+        }
+
+ 
+
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+  }
+
+
+        .quantity {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" />
+    <script>
+        function val() {
+            var Category = document.getElementById("food_category").value;
+            if (Category == "veg") {
+
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+
+    <div class="a_dashboard">
+        <div id="mySidenav" class="sidenav">
+            <p class="logo"><span> SDGS</span></p>
+            <a href="{% url 'simple_upload' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Update Menu</a>
+	  <a href="{% url 'view_menu' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Menu</a>
+	  
+	  <a href="{% url 'view_orders' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View Order</a>
+	  
+	  <a href="{% url 'view_feedback' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;View  Feedback</a>
+	  <a href="{% url 'a_logout' %}"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;logout</a>
+
+  
+        </div>
+        <div id="main">
+
+            <div class="head">
+                <div class="col-div-6">
+                    <span style="font-size:30px;cursor:pointer; color: black;" class="nav">&#9776; Dashboard</span>
+                    <span style="font-size:30px;cursor:pointer; color: black;" class="nav2">&#9776; Dashboard</span>
+                </div>
+            </div>
+        </div>
+	
+        <div class="col-div-6">
+        <div class="profile">
+            
+            <img src="{% static 'images/icon.jpg' %}" alt="Profile Image" class="pro-img profile" style="float: left; margin-left: 400px;">
+    
+            
+            
+            <p style="float: left; margin-left: 400px;">Canteen Admin</p>
+        </div>
+    </div>
+           
+            
+            <h1>Modify Food Item</h1>
+            {% block content %}
+            <form method="post" enctype="multipart/form-data">
+                <h1>Modify Food Item</h1>
+                {% csrf_token %}
+                {% for x in fo %}
+                <label for="food_id">Food ID:</label>
+                <input type="text" id="food_id" name="food_id" value="{{x.food_id}}"><br><br>
+                <label for="food_name">Food Name:</label>
+                <input type="text" id="food_name" name="food_name" value="{{x.food_name}}"><br><br>
+                <label for="food_price">Food Price:</label>
+                <input type="number" id="food_price" name="food_price" value="{{x.food_price}}"><br><br>
+
+                <input type="file" name="myfile">
+                <button type="submit">Upload</button>
+               
+
+                
+                
+                {% endfor %}
+
+            </form>
+
+          
+        </div>
+        {% endblock %}
+        <div class="clearfix"></div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(".nav").click(function () {
+            $("#mySidenav").css('width', '70px');
+            $("#main").css('margin-left', '70px');
+            $(".logo").css('visibility', 'hidden');
+            $(".logo span").css('visibility', 'visible');
+            $(".logo span").css('margin-left', '-10px');
+            $(".icon-a").css('visibility', 'hidden');
+            $(".icons").css('visibility', 'visible');
+            $(".icons").css('margin-left', '-8px');
+            $(".nav").css('display', 'none');
+            $(".nav2").css('display', 'block');
+        });
+
+        $(".nav2").click(function () {
+            $("#mySidenav").css('width', '300px');
+            $("#main").css('margin-left', '300px');
+            $(".logo").css('visibility', 'visible');
+            $(".icon-a").css('visibility', 'visible');
+            $(".icons").css('visibility', 'visible');
+            $(".nav").css('display', 'block');
+            $(".nav2").css('display', 'none');
+        });
+
+    </script>
+
+</body>
+
+
+</html>

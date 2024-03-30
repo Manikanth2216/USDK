@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SDGS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dine Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">   
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet"> <!-- font-awesome icons --> 
+<!-- //Custom Theme files --> 
+<!-- js -->
+<script src="{% static 'js/jquery-2.2.3.min.js'%}"></script>  
+<!-- //js -->
+<!-- web-fonts -->   
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- //web-fonts -->
+<style>
+    /* Inline CSS */
+    body 
+	{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+	.banner 
+	{
+     background: url("{% static 'images/custlogbg1.jpg' %}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    position: relative;
+    }
+    .container 
+	{
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #4285f4;
+    }
+    .info-item 
+	{
+      margin-bottom: 20px;
+    }
+    .info-label 
+	{
+      font-weight: bold;
+      display: inline-block;
+      width: 150px;
+    }
+    .info-value 
+	{
+      display: inline-block;
+    }
+</style>
+</head>
+<body> </head>
+<body> 
+	<!-- banner -->
+	<div class="banner">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="{% url 'index'%}">SDGS</a></h1>
+				</div> 
+				<div class="menu">
+					<a href="#" class="navicon"></a> 
+					<div class="toggle"> 
+						<ul class="toggle-menu">
+							<li><a href="{% url 'new_menu' %}"class="icon-a"> Menu</a></li>
+							<li><a href="{% url 'view_cart'%}" > View cart</a></li> 
+							<li><a href="{% url 'order_status' %}"class="icon-a"> View order status</a></li>
+							<li><a href="{% url 'logout' %}"class="icon-a"> Logout</a></li>
+						</ul>
+					</div> 
+				</div>   
+				<div class="social-w3licon">
+					<a href="http://twitter.com/rowdymani_905?t=9rM3b2ab8toCAPS0SINwzw&s=09" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.facebook.com/" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.google.com/" class="social-button google"><i class="fa fa-google-plus"></i></a>
+					<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+				  </div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //header --> 
+		<!-- banner-text -->
+		<div class="banner-text w3labout-bnr"> 
+			<div class="container">  
+				<h2><a href="{% url 'index'%}">Home</a> / Myaccount</h2>   
+			</div>
+		</div>
+		<!-- //banner-text -->
+	</div>
+  <div class="container">
+    {% if customer %}
+      <div class="info-item">
+        <span class="info-label">Customer ID:</span>
+        <span class="info-value">{{ customer.cust_id }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Name:</span>
+        <span class="info-value">{{ customer.name }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{ customer.email }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Phone Number:</span>
+        <span class="info-value">{{ customer.phone }}</span>
+	  </div>
+	  <div class="info-item">
+        <span class="info-label">Gender:</span>
+        <span class="info-value">{{ customer.gender }}</span>
+	  </div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'edit_customer' customer.cust_id %}" class="btn btn-primary">Edit Details</a>
+
+    {% else %}
+      <p>No customer details found.</p>
+    {% endif %}
+  </div>
+	<!-- modal-about -->
+	<!-- //modal-about -->  
+	<!-- bars-js -->   
+	<script src="js/bars.js"></script>
+	<!-- //bars-js --> 
+	<!-- menu-js -->
+	<script>
+		$('.navicon').on('click', function (e) {
+		  e.preventDefault();
+		  $(this).toggleClass('navicon--active');
+		  $('.toggle').toggleClass('toggle--active');
+		});
+	</script> 
+	<!-- //menu-js -->
+	<!-- jarallax -->  
+	<script src="js/SmoothScroll.min.js"></script> 
+	<script src="js/jarallax.js"></script> 
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>  
+	<!-- //jarallax --> 
+	<!-- start-smooth-scrolling --> 
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>	
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //end-smooth-scrolling -->	 
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->  		
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

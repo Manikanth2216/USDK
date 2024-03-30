@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SDGS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dine Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/bootstrap.css'%}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="all">   
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet"> <!-- font-awesome icons --> 
+<!-- //Custom Theme files --> 
+<!-- js -->
+<script src="{% static 'js/jquery-2.2.3.min.js'%}"></script>  
+<!-- //js -->
+<!-- web-fonts -->   
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- //web-fonts -->
+<style>
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.popup {
+      width: 200px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+	.banner {
+    background: url("{% static 'images/custlogbg1.jpg' %}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+.card {
+  flex-basis: calc(33.33% - 20px);
+  width: 200px;
+  height: 300px;
+  background-color: #f9fcf9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 70%;
+  height: 60%;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.add-to-cart {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 20px auto 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.link-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.link-container a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 2rem;
+  color: #008CBA;
+  text-decoration: none;
+}
+.cart-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.link-btn {
+  background-color: #008CBA;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+.link-btn:hover {
+  background-color: #ffffff;
+  color: #008CBA;
+  text-decoration: underline;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  align-items: center;
+}	
+
+
+
+
+.search-container {
+    position: absolute;
+    top: 70%;
+    right: 160px; /* Adjust the right distance as needed */
+    transform: translateY(-50%);
+}
+
+/* Style for the search input */
+.search-box {
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style for the search icon (optional) */
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+
+
+
+</style>
+</head>
+<body> 
+	<!-- banner -->
+	<div class="banner">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<h1>SDGS</a></h1>
+				</div> 
+				<div class="menu">
+					<a href="#" class="navicon"></a> 
+					<div class="toggle"> 
+						<ul class="toggle-menu">
+							<li><a href="{% url 'myaccount'%}" > My Account</a></li> 
+							<li><a href="{% url 'view_cart'%}" > View cart</a></li> 
+							<li><a href="{% url 'sendfeedback'%}" > Send feedback</a></li> 				
+							<li><a href="{% url 'order_status' %}"class="icon-a"> View order status</a></li>
+							<li><a href="{% url 'logout' %}"class="icon-a"> Logout</a></li>
+						</ul>
+					</div> 
+				</div>   
+				<div class="social-w3licon">
+					<a href="http://twitter.com/rowdymani_905?t=9rM3b2ab8toCAPS0SINwzw&s=09" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.facebook.com/" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.google.com/" class="social-button google"><i class="fa fa-google-plus"></i></a>
+					<a href="https://www.instagram.com/saidathakirnam/?igshid=MzRlODBiNWFlZA==" class="social-button instagram"><i class="fa fa-instagram"></i></a>
+				  </div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //header --> 
+		<!-- banner-text -->
+		<div class="banner-text w3labout-bnr"> 
+			<div class="container">  
+				<h2>Menu</h2>  
+				
+				<div class="search-container">
+					<input type="text" id="search" class="search-box" placeholder="Search for items...">
+					<i class="fa fa-search search-icon"></i>
+				</div>
+
+            </div>
+
+		</div>
+		<!-- //banner-text -->
+	</div>
+	<!-- //banner -->   
+	<!-- about -->
+	<div class="about gallery">
+		<div class="container">  
+			<div class="card-wrapper">
+				{%for x in menu %}
+				<div class="card">
+					<img src="media/{{x.name}}" alt="Card 1">
+					<h4 style="font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; margin-bottom: 10px; text-align: center;">Name: {{x.food_name}}</h4>
+					<h4 style="font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold; margin-bottom: 10px; text-align: center;">Expire Date: {{x.expire}}</h4>
+					<h4 style="font-family: 'Roboto', sans-serif; font-size: 16px; margin-bottom: 10px; text-align: center;">Price: {{x.food_price}}</h4>
+					<a href="{% url 'add_cart' x.food_id %}">
+					<button onclick="showPopup()" style="border-radius: 5px; font-size: 14px; background-color: #4CAF50; color: white; display: block; margin: 0 auto;">Add to Cart</button>
+					</a>
+					<div id="popupBox" class="popup">
+						<h3>Item Added to Cart</h3>
+					  </div>
+				</div>
+					{%endfor%}
+					<!--div id="bottom-link" style="text-align: center;">
+            <a href="{% url 'view_cart'%}" style="background-color: #007bff; cursor: pointer; color: rgb(3, 3, 3);font-size: 20px; padding: 5px 10px; border-radius: 5px; font-size: 20px; margin-right: 70px;">view cart</a>
+          </div-->
+          <div class="cart-link">
+			<a href="{% url 'view_cart'%}" class="link-btn" style="margin-right: 20px;">View Cart</a>
+		</div>
+			  </div>
+				<div class="clearfix"> </div>
+				<script type="text/javascript" src="{% static 'js/smoothbox.jquery2.js'%}"></script>
+			</div>
+		</div>
+	<!-- //about-team -->  
+	<!-- footer -->
+	<!-- //modal-about -->  
+	<!-- bars-js -->   
+	<script src="js/bars.js"></script>
+	<script>
+		function showPopup() {
+      var popup = document.getElementById('popupBox');
+      popup.style.display = 'block';
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 2000); // Display the popup for 2 seconds (2000 milliseconds)
+    }
+	</script>
+	<!-- //bars-js --> 
+	<!-- menu-js -->
+	<script>
+		$('.navicon').on('click', function (e) {
+		  e.preventDefault();
+		  $(this).toggleClass('navicon--active');
+		  $('.toggle').toggleClass('toggle--active');
+		});
+	</script> 
+	<!-- //menu-js -->
+	<!-- jarallax -->  
+	<script src="js/SmoothScroll.min.js"></script> 
+	<script src="js/jarallax.js"></script> 
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>  
+	<!-- //jarallax --> 
+	<!-- start-smooth-scrolling --> 
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>	
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //end-smooth-scrolling -->	 
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->  		
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+
+
+	<script>
+		// Function to filter items based on search input
+		function filterItems() {
+			var input = document.getElementById("search");
+			var filter = input.value.toLowerCase();
+			var cards = document.querySelectorAll(".card");
+	
+			cards.forEach(function(card) {
+				var itemName = card.querySelector("h4").textContent.toLowerCase();
+				if (itemName.includes(filter)) {
+					card.style.display = "block";
+				} else {
+					card.style.display = "none";
+				}
+			});
+		}
+	
+		// Add an event listener to the search input
+		document.getElementById("search").addEventListener("input", filterItems);
+	</script>
+	
+
+
+
+
+</body>
+</html>
